@@ -43,7 +43,7 @@ changeBg();
 function sortList(n) {
     //n:当前点击那一列的索引
     //this->当前点击的那一列 每一次点击的时候都让当前列的flag*=-1
-    var _this = this;
+    var _this = this;//->sortList中的this是当前点击的那一列
     for (var k = 0; k < oThs.length; k++) {
         k !== n ? oThs[k].flag = -1 : null;
     }
