@@ -55,7 +55,10 @@ function sortList(n) {
     //B、给rowsAry进行排序
     rowsAry.sort(function (a, b) {
         //this->window
-        var curIn = a.cells[n].innerHTML, nexIn = b.cells[n].innerHTML, curInNum = parseFloat(curIn), nexInNum = parseFloat(nexIn);
+        var curIn = a.cells[n].innerHTML, 
+            nexIn = b.cells[n].innerHTML, 
+            curInNum = parseFloat(curIn), 
+            nexInNum = parseFloat(nexIn);
         var num = isNaN(curInNum) ? curIn.localeCompare(nexIn) : curInNum - nexInNum;
         return num * _this.flag;
     });
