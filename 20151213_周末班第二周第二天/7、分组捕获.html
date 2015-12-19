@@ -36,6 +36,28 @@
 
     //而match只能捕获大正则匹配的内容
     //console.log(str.match(reg));//->["zhufeng1234", "zhufeng3456", "zhufeng5678"]
+
+    // var url="http://kbs.sports.qq.com/kbsweb/game.htm?mid=100000&cid=1467086&app=1.0";
+    // 把url中问号后传递的参数值获取到,例如:获取的结果是{mid:10000,cid:1467086,app:1.0}
+var reg = /\d+?/g;
+var str = "zhufeng2015peixun2016yangfan2017";
+//console.log(reg.exec(str));//->["2"...]
+var ary = [], res = reg.exec(str);
+while (res) {
+   ary.push(res[0]);
+   res = reg.exec(str);
+}
+console.log(ary);
+var reg = /[?|&]([a-z]+)=(\d+|(\.\d+))/g;
+var url="http://kbs.sports.qq.com/kbsweb/game.htm?mid=100000&cid=1467086&app=1.0";
+var obj = {},
+    res = reg.exec(url);
+while(res) {
+    obj[res[1]] =  res[2];
+    res = reg.exec(url);
+    console.log(res);
+}
+console.log(obj);
 </script>
 </body>
 </html>
