@@ -138,6 +138,25 @@
     function position(curEle) {
         //获取当前元素距离它的parentNode的偏移量
     }
+
+
+    function offset(ele) {
+        var l = ele.offsetLeft;
+        var t = ele.offsetTop;
+        var p = elel.offsetParent;
+        while(1) {
+            if (!p||p==document.body) beark;
+            if(window.navigator.userAgent.indexOf("MSIE 8") > -1 )  {
+                l += p.offsetLeft;
+                t += p.offsetTop;
+            } else {
+                l += p.offsetLeft + clientLeft;
+                t += p.offsetTop + clientTop;
+            }
+            p = p.offsetParent;
+        }
+        retrun {l:l , p:p};
+    }
 </script>
 </body>
 </html>
