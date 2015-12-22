@@ -74,7 +74,6 @@ DOM.nextSiblings=function (ele){//找弟弟们
 		}
 	}
 	return a;
-	
 }
 DOM.prev=function (ele){//找相邻的唯一的哥哥
 	/*var a=prevSiblings(ele);
