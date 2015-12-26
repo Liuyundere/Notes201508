@@ -232,7 +232,7 @@ var animate = (function () {
         //init effect
         var fnEffect = zhufengEffect.Linear;//->默认是匀速的运动
         if (typeof effect === "number") {
-            //1->Linear 2->Elastic-easeOut 3->Back-easeOut 4->Bounce-easeOut 5->Expo-easeIn
+            //1->Linear匀速 2->Elastic-easeOut弹性 3->Back-easeOut返回 4->Bounce-easeOut反弹 5->Expo-easeIn减速
             var ary = ["Linear", "Elastic-easeOut", "Back-easeOut", "Bounce-easeOut", "Expo-easeIn"];
             for (var i = 0; i < ary.length; i++) {
                 if (effect === (i + 1)) {
