@@ -50,25 +50,25 @@
     var inner = document.getElementById("inner");
     var center = document.getElementById("center");
 
-    body.onclick = function () {
-        console.log("body");
+    body.onclick = function (e) {
+        console.dir(e.target);
     };
 
-    outer.onclick = function () {
-        console.log("outer");
-    };
+    // outer.onclick = function () {
+    //     console.log("outer");
+    // };
 
-    inner.onclick = function () {
-        console.log("inner");
-    };
+    // inner.onclick = function () {
+    //     console.log("inner");
+    // };
 
-    center.onclick = function (e) {
-        e = e || window.event;
+    // center.onclick = function (e) {
+    //     e = e || window.event;
 
-        //阻止冒泡传播
-        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
-        console.log("center");
-    };
+    //     //阻止冒泡传播
+    //     e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+    //     console.log("center");
+    // };
 
     //事件的传播机制:
     //捕获阶段

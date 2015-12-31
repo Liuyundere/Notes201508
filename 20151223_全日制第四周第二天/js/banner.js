@@ -39,6 +39,7 @@ function delayImg() {
     for (var i = 0; i < imgList.length; i++) {
         ~function (i) {
             var curImg = imgList[i];
+            console.log(curImg);
             var oImg = new Image;
             oImg.src = curImg.getAttribute("trueImg");
             oImg.onload = function () {
@@ -48,7 +49,8 @@ function delayImg() {
         }(i);
     }
 }
-window.setTimeout(delayImg, 500);
+delayImg();
+// window.setTimeout(delayImg, 500);
 
 //3、实现自动轮播
 function autoMove() {

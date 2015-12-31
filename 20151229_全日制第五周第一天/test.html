@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<body>
+    <div class="outer">
+    <div class="inner">
+        <div><img src="" trueImg="img/banner4.jpg"/></div>
+        <div><img src="" trueImg="img/banner1.jpg"/></div>
+        <div><img src="" trueImg="img/banner2.jpg"/></div>
+        <div><img src="" trueImg="img/banner3.jpg"/></div>
+        <div><img src="" trueImg="img/banner4.jpg"/></div>
+        <div><img src="" trueImg="img/banner1.jpg"/></div>
+    </div>
+    <ul class="innerTip">
+        <li class="select"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a href="javascript:;" class="innerLeft"></a>
+    <a href="javascript:;" class="innerRight"></a>
+</div>
+</body>
+<script>
+    var inner = document.getElementById("inner");
+    var imgList = inner.getElementsByTagName("div");
+    // lazy load 
+    
+    function delayImg () {
+        for(var i = 0; i < imgList.length; i++) {
+            ~function(i) {
+                var curImg = imgList[i];
+                var oImg = new Image;
+                oImg.src = curImg.getAttribute("trueImg");
+                oImg.onload = function() {
+                    curImg.appendChild()
+                }
+            }(i)
+        }
+    }
+    delayImg();
+</script>
+</html>

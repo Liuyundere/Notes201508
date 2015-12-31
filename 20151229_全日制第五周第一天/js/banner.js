@@ -5,7 +5,6 @@ window.onload = function () {
     $(".inner img").each(function () {
         var _this = this;
         var trueImg = $(this).attr("trueImg");
-
         var oImg = new Image;
         oImg.src = trueImg;
         oImg.onload = function () {
