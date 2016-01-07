@@ -37,8 +37,13 @@ function unbind(ele,type,fn){
 }
 
 function on(ele,type,fn){
+	if(ele.addEventListener){
+		ele.addEventListener(type,fn,false);	
+		return;
+	}
 	if(!ele["onEvent"+type]){
 		ele["onEvent"+type]=[];//如果数据不存在，则定义数组。	
+		ele.attachEvent("on"+type,function(){run.call(ele)});
 	}
 	var a=ele["onEvent"+type];
 	for(var i=0;i<a.length;i++){
@@ -46,6 +51,9 @@ function on(ele,type,fn){
 	}
 	a.push(fn);//所谓的事件绑定，就是把方法保存到数组里
 	bind(ele,type,run);
+
+
+
 }
 function run(e){
 	e=e||window.event;
@@ -57,6 +65,8 @@ function run(e){
 		e.pageX=(document.documentElement.srollLeft||document.body.scrollLeft)+e.clientX;
 		e.pageY=(document.documentElement.scrollTop||document.body.scrollTop)+e.clientY;
 	}
+
+
 	var a=this["onEvent"+type];
 	for(var i=0;i<a.length;i++){
 		if(typeof a[i]=="function"){
@@ -66,10 +76,12 @@ function run(e){
 			i--;
 		}
 	}
-	
 }
 
 function off(ele,type,fn){
+	if(ele.removeEventListener) {
+		ele.removeEventListener(type,fn,false);
+	}
 	var a=ele["onEvent"+type];
 	if(a){
 		for(var i=0;i<a.length;i++){

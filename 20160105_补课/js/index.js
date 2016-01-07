@@ -29,6 +29,7 @@ function down(e) {
     //当每一次点击的时候先把之前的正在运动的fly和drop动画清除掉
     window.clearTimeout(this.flyTimer);
     window.clearTimeout(this.dropTimer);
+    e.preventDefault();
 }
 
 function move(e) {
@@ -92,6 +93,7 @@ function fly() {
     } else {
         this.style.left = curL + "px";
     }
+    console.log()
     //当我们的速度小于0.5的时候就没有必要在继续的走了,结束当前的fly动画
     if (Math.abs(this.speed) < 0.5) {
         return;

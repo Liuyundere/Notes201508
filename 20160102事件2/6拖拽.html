@@ -25,6 +25,9 @@
 		this.y=this.offsetTop;
 		this.mx=e.pageX;
 		this.my=e.pageY;
+
+
+
 		if(this.setCapture){
 			this.setCapture();
 			on(this,"mousemove",move);
@@ -68,7 +71,6 @@
 	function move(e){//进行拖拽
 		this.style.left=this.x+(e.pageX-this.mx)+"px";
 		this.style.top=this.y+(e.pageY-this.my)+"px";
-		
 	}
 	
 	function up(e){//结束拖拽
@@ -80,7 +82,40 @@
 			off(document,"mousemove",this.MOVE);
 			off(document,"mouseup",this.UP);	
 		}
-		
 	}
 
+
+
+	function down(e) {
+		this.x = this.offsetLeft;
+		this.y = this.offsetTop;
+		this.mx = e.pageX;
+		this.my = e.pageY;
+		if(this.setCapture) {
+			this.setCapture();
+			on(this,"mousemove",move);
+			on(this,"mouseup",up);
+		} eles {
+			this.MOVE = move.bind(this);
+			this.UP = up.bind(this);
+			on(document,"mousemove",this.MOVE);
+			on(document,"mouseup",this.UP);
+		}
+	}
+
+	function move(e) {
+		this.style.left = this.x + (e.pageX - this.mx);
+		this.style.top = this.y + (e.pageY - this.my);
+	}
+
+	function up(e) {
+		if(this.releaseCapture) {
+			this.releaseCapture();
+			off(this,"mousemove",move);
+			off(this,"moveup",up);
+		} else {
+			off(document,"mousemove",this.MOVE);
+			off(document,"mouseup",this.UP);
+		}
+	}
 </script>
