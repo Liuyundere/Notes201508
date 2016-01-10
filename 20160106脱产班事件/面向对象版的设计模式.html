@@ -63,7 +63,7 @@ Kettle.prototype.boiling=function(){
 	var _this=this;
 	setTimeout(function(){
 		console.log("水已开");
-		
+		console.log(_this);
 		_this.fire("boiling");	//发布自定义事件，"boiling"就是指定的事件类型。也叫通知
 	},5000);
 }
