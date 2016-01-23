@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		Number.prototype.plus = function(num){
+			return this + Number(num);
+		}
+		Number.prototype.reduce = function(num){
+			return this - Number(num);
+		}
+		document.write("计算(5).plus('10').reduce(2)的值：<br>")
+		document.write("通过计算，值为" + (5).plus('10').reduce(2));
+	</script>
+</body>
+</html>
