@@ -48,7 +48,6 @@
             var cur = dataAry[i];
             //->在最后一页的时候,我们获取的索引可能已经超过了总数据条数,这样获取的cur的结果是undefined,如果出现这样的情况我们就结束循环即可
             if (!cur) break;
-
             str += "<li num='" + cur["num"] + "'>";
             for (var key in cur) {
                 str += "<span>" + cur[key] + "</span>";
@@ -61,9 +60,9 @@
         //给每一个li绑定点击事件,实现跳转到详细页
         for (var k = 0; k < listLis.length; k++) {
             listLis[k].onclick = function () {
-                window.location.href = "detail.html?num=" + this.getAttribute("num");
-            };
-        }
+            window.location.href = "detail.html?num=" + this.getAttribute("num");
+        };
+    }
     }
 
     function changeBg() {
@@ -101,15 +100,15 @@
             e = e || window.event;
             if (e.keyCode !== 13) return;
 
-            var val = this.value.replace(/(^ +| +$)/g, "");
-            var reg = /^\d+$/, flag = true;
-            if (reg.test(val)) {
-                val = Number(val);
-                if (val >= 1 && val <= totalPage) {
-                    curPage = val;
-                    bindList();
-                    changePage();
-                } else {
+                    var val = this.value.replace(/(^ +| +$)/g, "");
+                    var reg = /^\d+$/, flag = true;
+                    if (reg.test(val)) {
+                        val = Number(val);
+                        if (val >= 1 && val <= totalPage) {
+                            curPage = val;
+                            bindList();
+                            changePage();
+                        } else {
                     flag = false;
                 }
             } else {
@@ -132,7 +131,7 @@
         }
     };
     xhr.send();
-})();
+ })();
 
 function createXHR() {
     var xhr = null;
